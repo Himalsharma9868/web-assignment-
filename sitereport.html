@@ -10,7 +10,14 @@
     <header>
         <nav class="navbar">
             <div class="logo">Himal</div>
-            <ul class="nav-links">
+            
+            <div class="hamburger" id="hamburger-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links" id="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="project.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -26,7 +33,6 @@
             <p>
                 The module CSY1063 has been an experience in my life which has changed my life as I have acquired the fundamentals of web development. Being a beginner, I learned that coding does not only involve typing codes but also logic structure and imagination. My experience was marked with several highs and lows. The other major achievement was a successful application of a responsive CSS Grid on my project gallery; it was actually satisfying to see how the layout works so well with the different screen size. On the other hand, the biggest issue was in undergoing debugging process. The other thing that I wasted a lot of time on is troubleshooting of elements that did not match as anticipated due to the specificity and inheritance of CSS. These downs made me learn how to effectively use the browser developer tools to inspect items and resolve conflicts that is a valuable skill as a developer.
             </p>
-
             <h2>Design Decisions & Technical UI Development</h2>
             <p>
                 Technically, the work on the development of this site was aimed at designing a high-contrast User Interface (UI) which is clean and reflects my professional identity. I selected a bright color scheme of "Black, White, and Red". The Call-to-Action buttons and headings are carefully placed with red color to direct the attention of the user, and the base of the site is black and white to create a professional appearance. In the case of typography, I chose the Segoe UI as it is a modern and a non-serif font that enhances readability.
@@ -40,32 +46,40 @@
             <p>
                 It is important to ensure high standards and in this connection I have checked my pages with W3C validator services. The following are the screen shots that verifies that there are no errors in HTML and CSS.
             </p>
-
             <div class="validation-gallery">
                 <div class="validation-item">
                     <h3>HTML Validation</h3>
                     <div class="img-frame">
-                        <img src="image/html.png" alt="W3C HTML Validation Result" class="responsive-img">
+                        <img src="image/SRhtml.png" alt="W3C HTML Validation" class="responsive-img">
                     </div>
                 </div>
                 <div class="validation-item">
                     <h3>CSS Validation</h3>
                     <div class="img-frame">
-                        <img src="image/css.png" alt="W3C CSS Validation Result" class="responsive-img">
+                        <img src="image/SRcss.png" alt="W3C CSS Validation" class="responsive-img">
                     </div>
                 </div>
             </div>
 
-
             <div class="video-reference">
                 <h3>Video Demonstration URL</h3>
-                <p>The video walkthrough of this site can be found here: <a href="videodemo.html">Himal Sharma - Video Demo</a></p>
+                <p>The walkthrough is available here: <a href="videodemo.html">Himal Sharma - Video Demo</a></p>
             </div>
         </article>
     </main>
 
     <footer class="footer">
-        <p>&copy; Himal Sharma</p>
+        <p>&copy; 2026 Himal Sharma</p>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navList = document.getElementById('nav-list');
+
+        hamburger.addEventListener('click', () => {
+            navList.classList.toggle('show');
+            hamburger.classList.toggle('is-active');
+        });
+    </script>
 </body>
 </html>

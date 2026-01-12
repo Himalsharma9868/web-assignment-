@@ -10,15 +10,21 @@
     <header>
         <nav class="navbar">
             <div class="logo">Himal</div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
+            <div class="hamburger" id="hamburger-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links" id="nav-list">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="project.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
                 <li><a href="videodemo.html">Video Demo</a></li>
                 <li><a href="sitereport.html">Site Report</a></li>
             </ul>
         </nav>
     </header>
+
     <main class="contact-section">
         <div class="contact-container">
             <div class="contact-info">
@@ -39,15 +45,15 @@
                 </div>
             </div>
             <div class="form-wrapper">
-                <form action="Himal" method="post">
+                <form action="#" method="post">
                     Name:<br>
-                    <input type="text" name="name" placeholder="Your Name" required="required"><br>
+                    <input type="text" name="name" placeholder="Your Name" required><br>
                     
                     Email:<br>
-                    <input type="email" name="email" placeholder="Your Email" required="required"><br>
+                    <input type="email" name="email" placeholder="Your Email" required><br>
                     
                     Subject:<br>
-                    <input type="text" name="subject" placeholder="Project Inquiry" required="required"><br>
+                    <input type="text" name="subject" placeholder="Project Inquiry" required><br>
                     
                     Message:<br>
                     <textarea name="message" rows="5" placeholder="Tell me about your project..."></textarea><br>
@@ -57,8 +63,19 @@
             </div>
         </div>
     </main>
+
     <footer>
         <p>&copy; Himal Sharma</p>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navList = document.getElementById('nav-list');
+
+        hamburger.addEventListener('click', () => {
+            navList.classList.toggle('show');
+            hamburger.classList.toggle('is-active');
+        });
+    </script>
 </body>
 </html>

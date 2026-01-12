@@ -9,11 +9,26 @@ body {
     line-height: 1.8;
     background-color: #f4f4f4;
     color: #333;
+    overflow-x: hidden;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 header {
     background: black;
     padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar {
@@ -28,6 +43,7 @@ header {
 .logo {
     color: white;
     font-weight: 800;
+    font-size: 1.5rem;
 }
 
 .nav-links {
@@ -42,6 +58,11 @@ header {
 .nav-links a {
     color: white;
     text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links a.active, .nav-links a:hover {
+    color: red;
 }
 
 .report-wrapper {
@@ -50,6 +71,7 @@ header {
     background: white;
     padding: 50px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .report-content h1 {
@@ -65,11 +87,6 @@ header {
     margin: 30px 0 15px;
 }
 
-.report-content p {
-    margin-bottom: 20px;
-    text-align: justify;
-}
-
 .validation-gallery {
     display: flex;
     gap: 20px;
@@ -78,12 +95,10 @@ header {
 
 .validation-item {
     flex: 1;
-    min-width: 300px;
 }
 
-img-frame {
+.img-frame {
     border: 1px solid #ddd;
-    border-radius: 5px;
     padding: 5px;
     background: #fff;
 }
@@ -91,7 +106,6 @@ img-frame {
 .responsive-img {
     width: 100%;
     height: auto;
-    display: block;
 }
 
 .video-reference {
@@ -103,7 +117,6 @@ img-frame {
 
 .video-reference a {
     color: red;
-    font-weight: bold;
 }
 
 .footer {
@@ -111,4 +124,56 @@ img-frame {
     padding: 20px;
     background: black;
     color: white;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.is-active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        flex-direction: column;
+        background-color: #111;
+        width: 100%;
+        transition: 0.3s;
+        padding: 20px 0;
+    }
+
+    .nav-links.show {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .report-wrapper {
+        padding: 25px;
+        margin: 20px 10px;
+    }
+
+    .validation-gallery {
+        flex-direction: column;
+    }
 }

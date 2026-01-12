@@ -10,15 +10,21 @@
     <header>
         <nav class="navbar">
             <div class="logo">Himal</div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="project.html">Portfolio</a></li>
+            <div class="hamburger" id="hamburger-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links" id="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="project.html" class="active">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="videodemo.html">Video Demo</a></li>
                 <li><a href="sitereport.html">Site Report</a></li>
             </ul>
         </nav>
     </header>
+
     <main class="projects-container">
         <div class="section-header">
             <h1>Himal Sharma | Portfolio</h1>
@@ -49,7 +55,7 @@
                 </div>
                 <div class="card-content">
                     <h2>Mobile UI Design</h2>
-                    <p> Prototypes of Instagram </p>
+                    <p>Prototypes of Instagram</p>
                 </div>
             </article>
             <article class="card">
@@ -63,8 +69,19 @@
             </article>
         </div>
     </main>
-    <footer>
+
+    <footer class="footer">
         <p>&copy; Himal Sharma</p>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navList = document.getElementById('nav-list');
+
+        hamburger.addEventListener('click', () => {
+            navList.classList.toggle('show');
+            hamburger.classList.toggle('is-active');
+        });
+    </script>
 </body>
 </html>

@@ -10,7 +10,12 @@
     <header>
         <nav class="navbar">
             <div class="logo">Himal</div>
-            <ul class="nav-links">
+            <div class="hamburger" id="hamburger-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links" id="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="project.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -24,7 +29,7 @@
         <section class="video-content">
             <h1>Video Demonstration</h1>
             <div class="video-link-fallback">
-                <p>Direct Link: <a href="https://www.youtube.com/watch?v=5OdDM-7BSO8">YouTube Link</a></p>
+                <p>Can't see the video? <a href="https://www.youtube.com/watch?v=5OdDM-7BSO8" target="_blank">Click here to watch on YouTube</a></p>
             </div>
         </section>
     </main>
@@ -32,5 +37,15 @@
     <footer class="footer">
         <p>&copy; Himal Sharma</p>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navList = document.getElementById('nav-list');
+
+        hamburger.addEventListener('click', () => {
+            navList.classList.toggle('show');
+            hamburger.classList.toggle('is-active');
+        });
+    </script>
 </body>
 </html>

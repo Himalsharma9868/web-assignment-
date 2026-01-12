@@ -1,5 +1,4 @@
-
-body, h1, h2, p{
+body, h1, h2, p {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,11 +9,26 @@ body {
     line-height: 1.6;
     background-color: white;
     color: black;
+    overflow-x: hidden;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 header {
     background: black;
     padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar {
@@ -44,15 +58,20 @@ header {
 .nav-links a {
     color: white;
     text-decoration: none;
+    transition: 0.3s;
 }
 
-/* Hero Section Styles */
+.nav-links a.active, .nav-links a:hover {
+    color: red;
+}
+
 .hero-section {
     min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
+    animation: fadeInUp 1s ease-out;
 }
 
 .content {
@@ -62,7 +81,7 @@ header {
 
 .degree-tag {
     display: inline-block;
-    background: white;
+    background: #f0f0f0;
     padding: 5px 15px;
     border-radius: 50px;
     font-size: 0.85rem;
@@ -97,7 +116,6 @@ h1 {
     line-height: 1.8;
 }
 
-/* Button Refinement */
 .cta-buttons {
     display: flex;
     justify-content: center;
@@ -119,8 +137,8 @@ h1 {
 }
 
 .primary-btn:hover {
-    background: rgb(187, 19, 19);
-    border-color: red;
+    background: #990000;
+    border-color: #990000;
 }
 
 .secondary-btn {
@@ -136,8 +154,64 @@ h1 {
 
 .footer {
     text-align: center;
-    padding: 20px ;
+    padding: 20px;
     background: black;
     color: white;
+}
 
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.is-active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        flex-direction: column;
+        background-color: black;
+        width: 100%;
+        text-align: center;
+        transition: 0.4s;
+        padding: 40px 0;
+    }
+
+    .nav-links.show {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 80%;
+    }
 }
